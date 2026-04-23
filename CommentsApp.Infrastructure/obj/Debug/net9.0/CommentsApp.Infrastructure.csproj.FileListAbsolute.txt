@@ -15,3 +15,4 @@ D:\Code\DzenTestTask\CommentsApp.Infrastructure\obj\Debug\net9.0\refint\Comments
 D:\Code\DzenTestTask\CommentsApp.Infrastructure\obj\Debug\net9.0\CommentsApp.Infrastructure.pdb
 D:\Code\DzenTestTask\CommentsApp.Infrastructure\obj\Debug\net9.0\CommentsApp.Infrastructure.genruntimeconfig.cache
 D:\Code\DzenTestTask\CommentsApp.Infrastructure\obj\Debug\net9.0\ref\CommentsApp.Infrastructure.dll
+D:\Code\DzenTestTask\CommentsApp.Infrastructure\obj\Debug\net9.0\CommentsApp.Infrastructure.sourcelink.json

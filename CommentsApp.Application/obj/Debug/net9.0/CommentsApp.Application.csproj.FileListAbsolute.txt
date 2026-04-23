@@ -10,3 +10,4 @@ D:\Code\DzenTestTask\CommentsApp.Application\obj\Debug\net9.0\CommentsApp.Applic
 D:\Code\DzenTestTask\CommentsApp.Application\obj\Debug\net9.0\refint\CommentsApp.Application.dll
 D:\Code\DzenTestTask\CommentsApp.Application\obj\Debug\net9.0\CommentsApp.Application.pdb
 D:\Code\DzenTestTask\CommentsApp.Application\obj\Debug\net9.0\ref\CommentsApp.Application.dll
+D:\Code\DzenTestTask\CommentsApp.Application\obj\Debug\net9.0\CommentsApp.Application.sourcelink.json

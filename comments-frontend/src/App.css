@@ -158,8 +158,17 @@ textarea {
 }
 
 .search-item {
+  width: 100%;
+  text-align: left;
+  background: #fff;
+  border: 0;
   padding: 10px;
   border-bottom: 1px solid #ecf1fb;
+  cursor: pointer;
+}
+
+.search-item:hover {
+  background: #f6f8ff;
 }
 
 .search-item:last-child {

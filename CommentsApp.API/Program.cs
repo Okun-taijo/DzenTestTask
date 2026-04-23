@@ -8,6 +8,7 @@ using CommentsApp.Infrastructure.Services;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.Extensions.FileProviders;
 using StackExchange.Redis;
 
@@ -70,6 +71,11 @@ builder.Services.AddProblemDetails();
 
 var app = builder.Build();
 
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+});
+
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
@@ -104,7 +110,6 @@ app.UseExceptionHandler(appBuilder =>
     });
 });
 app.UseRouting();
-//app.UseHttpsRedirection();
 app.UseCors("frontend");
 
 var uploadRelativePath = builder.Configuration["FileStorage:UploadPath"];

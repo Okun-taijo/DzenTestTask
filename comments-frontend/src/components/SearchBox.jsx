@@ -21,6 +21,11 @@ export default function SearchBox({ onResultsChange }) {
     return () => clearTimeout(delay);
   }, [q, onResultsChange]);
 
+  const handlePick = (item) => {
+    setResults([]);
+    onResultsChange?.(q, [item]);
+  };
+
   return (
     <div className="search-box">
       <input
@@ -32,12 +37,15 @@ export default function SearchBox({ onResultsChange }) {
       {results.length > 0 && (
         <div className="search-results">
           {results.map((r) => (
-            <div key={r.id} className="search-item">
+            <button
+              key={r.id}
+              type="button"
+              className="search-item"
+              onClick={() => handlePick(r)}
+            >
               <b>{r.userName}</b>
-              <div
-                dangerouslySetInnerHTML={{ __html: r.text }}
-              />
-            </div>
+              <div dangerouslySetInnerHTML={{ __html: r.text }} />
+            </button>
           ))}
         </div>
       )}

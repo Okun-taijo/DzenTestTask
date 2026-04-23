@@ -82,8 +82,10 @@ services:
       RabbitMq__Pass: guest
       RabbitMq__Queue: comments_events
       Elastic__Uri: "http://elasticsearch:9200"
-      Cors__AllowedOrigins__0: "http://localhost:5173"
-      Cors__AllowedOrigins__1: "http://localhost:8080"
+      Cors__AllowedOrigins__0: "https://localhost"
+      Cors__AllowedOrigins__1: "https://localhost:443"
+      Cors__AllowedOrigins__2: "https://localhost:5173"
+      Cors__AllowedOrigins__3: "http://localhost:5173"
     ports:
       - "5000:5000"
     volumes:
@@ -93,14 +95,13 @@ services:
     build:
       context: ./comments-frontend
       dockerfile: Dockerfile
-      args:
-        VITE_API_URL: "http://localhost:5000"
     container_name: comments-frontend
     depends_on:
       api:
         condition: service_started
     ports:
       - "8080:80"
+      - "443:443"
 
 volumes:
   db_data:

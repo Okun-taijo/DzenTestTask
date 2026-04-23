@@ -9,7 +9,8 @@
 - `CommentsApp.Infrastructure` - EF Core, Redis cache, RabbitMQ, Elasticsearch, работа с файлами.
 - `comments-frontend` - React/Vite frontend.
 - `docker-compose.yml` - единый запуск всех сервисов.
-- `db-schema.sql` - актуальная SQL-схема базы данных.
+- `db-schema.sql` - актуальная SQL Server схема базы данных.
+- `db-schema-mysql.sql` - MySQL-схема для открытия/сравнения в MySQL Workbench.
 
 ## Функциональность
 
@@ -50,7 +51,8 @@
 
 - Docker Desktop (или Docker Engine + Compose plugin)
 - Порты должны быть свободны:
-  - `8080` frontend
+  - `443` frontend (HTTPS)
+  - `8080` frontend redirect (HTTP -> HTTPS)
   - `5000` API
   - `1433` SQL Server
   - `5672`, `15672` RabbitMQ
@@ -67,14 +69,15 @@ docker compose up -d --build
 
 ### Проверка
 
-- Frontend: [http://localhost:8080](http://localhost:8080)
-- API Swagger: [http://localhost:5000/swagger](http://localhost:5000/swagger)
-- GraphQL endpoint: [http://localhost:5000/graphql](http://localhost:5000/graphql)
+- Frontend (основной): [https://localhost](https://localhost)
+- Frontend (redirect): [http://localhost:8080](http://localhost:8080)
+- API Swagger (через reverse proxy): [https://localhost/swagger](https://localhost/swagger)
+- GraphQL endpoint (через reverse proxy): [https://localhost/graphql](https://localhost/graphql)
 - RabbitMQ UI: [http://localhost:15672](http://localhost:15672) (`guest` / `guest`)
 - Elasticsearch health: [http://localhost:9200/_cluster/health](http://localhost:9200/_cluster/health)
 
-Важно: при запуске через `docker compose` фронтенд работает на `http://localhost:8080`.  
-`http://localhost:5173` в этом режиме не используется.
+Важно: при запуске через `docker compose` фронтенд работает на `https://localhost`.  
+`http://localhost:8080` в этом режиме только делает redirect на HTTPS.
 
 ### Остановка
 
@@ -95,7 +98,7 @@ docker compose down -v
 - `redis` - Redis 7
 - `elasticsearch` - Elasticsearch 8 (single-node, security disabled for dev)
 - `api` - backend ASP.NET Core (с автоприменением миграций при старте)
-- `frontend` - production-сборка React на Nginx
+- `frontend` - production-сборка React на Nginx с TLS (self-signed сертификат)
 
 ## Локальный запуск без Docker
 
@@ -127,7 +130,7 @@ npm run dev
 Frontend поднимется на `http://localhost:5173`.
 
 Важно: `http://localhost:5173` - это только dev-режим без Docker.  
-Если запущен `docker compose`, открывайте `http://localhost:8080`.
+Если запущен `docker compose`, открывайте `https://localhost`.
 
 ## Конфигурация
 
@@ -146,7 +149,10 @@ Frontend поднимется на `http://localhost:5173`.
 
 ## Структура БД
 
-Схема в файле `db-schema.sql`.
+Схема в файлах:
+
+- `db-schema.sql` (реализованная SQL Server схема)
+- `db-schema-mysql.sql` (MySQL Workbench-совместимый вариант для проверки/сравнения)
 
 Таблицы:
 
@@ -186,7 +192,11 @@ Frontend поднимется на `http://localhost:5173`.
   Текущая выдача поиска показывает полный комментарий и вложения. Если нужен именно highlight (подсветка фрагмента), это отдельный режим ответа API.
 
 - **Realtime не работает**  
-  Убедитесь, что открыт `http://localhost:5000` и в браузере нет блокировок websocket.
+  Убедитесь, что открыт `https://localhost` и в браузере нет блокировок websocket.
+
+- **Браузер предупреждает о сертификате**  
+  Для локального HTTPS в Docker используется self-signed сертификат `localhost`.  
+  Предупреждение "Небезопасное подключение" в браузере в этом случае ожидаемо и нормально для dev-стенда: подтвердите исключение безопасности в браузере.
 
 - **Не загружаются файлы**  
   Проверьте volume `uploads_data` и наличие прав на запись в контейнере `api`.

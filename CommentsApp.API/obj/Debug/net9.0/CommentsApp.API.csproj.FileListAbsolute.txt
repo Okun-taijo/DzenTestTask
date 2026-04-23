@@ -230,3 +230,5 @@ D:\Code\DzenTestTask\CommentsApp.API\bin\Debug\net9.0\runtimes\linux-musl-x64\na
 D:\Code\DzenTestTask\CommentsApp.API\bin\Debug\net9.0\runtimes\linux-riscv64\native\libSkiaSharp.so
 D:\Code\DzenTestTask\CommentsApp.API\bin\Debug\net9.0\runtimes\linux-x64\native\libSkiaSharp.so
 D:\Code\DzenTestTask\CommentsApp.API\bin\Debug\net9.0\runtimes\linux-x86\native\libSkiaSharp.so
+D:\Code\DzenTestTask\CommentsApp.API\obj\Debug\net9.0\CommentsApp.API.MvcApplicationPartsAssemblyInfo.cs
+D:\Code\DzenTestTask\CommentsApp.API\obj\Debug\net9.0\CommentsApp.API.sourcelink.json

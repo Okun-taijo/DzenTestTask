@@ -44,6 +44,7 @@ export const getCommentsGraphQL = async ({
           id
           userName
           email
+          homePage
           text
           createdAt
         }

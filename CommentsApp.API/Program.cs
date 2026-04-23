@@ -10,6 +10,7 @@ using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.AspNetCore.StaticFiles;
 using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -121,10 +122,14 @@ var uploadPath = System.IO.Path.Combine(
 if (!Directory.Exists(uploadPath))
     Directory.CreateDirectory(uploadPath);
 
+var contentTypeProvider = new FileExtensionContentTypeProvider();
+contentTypeProvider.Mappings[".txt"] = "text/plain; charset=utf-8";
+
 app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(uploadPath),
-    RequestPath = "/uploads"
+    RequestPath = "/uploads",
+    ContentTypeProvider = contentTypeProvider
 });
 app.MapControllers();
 app.MapHub<CommentHub>("/hubs/comments");

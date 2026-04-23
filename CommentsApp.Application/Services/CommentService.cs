@@ -70,6 +70,7 @@ public class CommentService
             comment.Id,
             comment.UserName,
             comment.Email,
+            comment.HomePage,
             comment.Text,
             comment.CreatedAt,
             comment.ParentId,
@@ -77,7 +78,7 @@ public class CommentService
             {
                 a.Id,
                 a.FileName,
-                a.Path,
+                Path = $"/uploads/{NormalizeStoredFileName(a.Path)}",
                 a.IsImage
             }).ToList()
         });
@@ -130,7 +131,7 @@ public class CommentService
                 {
                     Id = a.Id,
                     FileName = a.FileName,
-                    Path = $"{baseUrl}/uploads/{a.Path}",
+                    Path = $"{baseUrl}/uploads/{NormalizeStoredFileName(a.Path)}",
                     IsImage = a.IsImage
                 }).ToList()
             }
@@ -174,6 +175,18 @@ public class CommentService
                 ? tree.OrderBy(x => x.CreatedAt).ToList()
                 : tree.OrderByDescending(x => x.CreatedAt).ToList(),
         };
+    }
+
+    private static string NormalizeStoredFileName(string rawPath)
+    {
+        if (string.IsNullOrWhiteSpace(rawPath))
+            return string.Empty;
+
+        var normalized = rawPath.Replace('\\', '/').Trim();
+        if (normalized.Contains('/'))
+            return global::System.IO.Path.GetFileName(normalized);
+
+        return normalized;
     }
 
 }

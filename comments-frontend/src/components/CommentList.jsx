@@ -28,9 +28,11 @@ export default function CommentList() {
   const getFileUrl = (path) => {
     if (!path) return "";
     if (path.startsWith("http")) return path;
-
-    const clean = path.replace("//uploads", "/uploads");
-    return `${API_BASE_URL}${clean.startsWith("/") ? "" : "/"}${clean}`;
+    const normalizedPath = path.replaceAll("\\", "/").replace(/^\/+/, "");
+    const relativePath = normalizedPath.startsWith("uploads/")
+      ? normalizedPath
+      : `uploads/${normalizedPath}`;
+    return `${API_BASE_URL}/${relativePath}`;
   };
 
 
@@ -97,6 +99,11 @@ export default function CommentList() {
     setSearchResults(Array.isArray(results) ? results : []);
   }, []);
 
+  const getHomePageUrl = (homePage) => {
+    if (!homePage) return "";
+    return /^https?:\/\//i.test(homePage) ? homePage : `https://${homePage}`;
+  };
+
   const renderComments = (list, depth = 0) =>
     (Array.isArray(list) ? list : []).map((c) => (
       <div
@@ -108,6 +115,16 @@ export default function CommentList() {
           <div>
             <b>{c.userName}</b>
             {c.email ? <span className="author-email">{c.email}</span> : null}
+            {c.homePage ? (
+              <a
+                className="author-homepage"
+                href={getHomePageUrl(c.homePage)}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {c.homePage}
+              </a>
+            ) : null}
           </div>
           <small>{new Date(c.createdAt).toLocaleString()}</small>
         </div>
@@ -169,6 +186,16 @@ export default function CommentList() {
           <div>
             <b>{c.userName || "Unknown user"}</b>
             {c.email ? <span className="author-email">{c.email}</span> : null}
+            {c.homePage ? (
+              <a
+                className="author-homepage"
+                href={getHomePageUrl(c.homePage)}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {c.homePage}
+              </a>
+            ) : null}
           </div>
           {c.createdAt ? <small>{new Date(c.createdAt).toLocaleString()}</small> : null}
         </div>
@@ -213,6 +240,7 @@ export default function CommentList() {
       <div className="controls">
         <button onClick={() => setSortBy("date")}>Sort by date</button>
         <button onClick={() => setSortBy("username")}>Sort by name</button>
+        <button onClick={() => setSortBy("email")}>Sort by email</button>
         <button className="secondary" onClick={() => setAsc((p) => !p)}>
           {asc ? "ASC" : "DESC"}
         </button>

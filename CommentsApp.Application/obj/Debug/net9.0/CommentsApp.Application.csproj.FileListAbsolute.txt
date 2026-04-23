@@ -1,0 +1,12 @@
+D:\Code\DzenTestTask\CommentsApp.Application\bin\Debug\net9.0\CommentsApp.Application.deps.json
+D:\Code\DzenTestTask\CommentsApp.Application\bin\Debug\net9.0\CommentsApp.Application.dll
+D:\Code\DzenTestTask\CommentsApp.Application\bin\Debug\net9.0\CommentsApp.Application.pdb
+D:\Code\DzenTestTask\CommentsApp.Application\obj\Debug\net9.0\CommentsApp.Application.csproj.AssemblyReference.cache
+D:\Code\DzenTestTask\CommentsApp.Application\obj\Debug\net9.0\CommentsApp.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Code\DzenTestTask\CommentsApp.Application\obj\Debug\net9.0\CommentsApp.Application.AssemblyInfoInputs.cache
+D:\Code\DzenTestTask\CommentsApp.Application\obj\Debug\net9.0\CommentsApp.Application.AssemblyInfo.cs
+D:\Code\DzenTestTask\CommentsApp.Application\obj\Debug\net9.0\CommentsApp.Application.csproj.CoreCompileInputs.cache
+D:\Code\DzenTestTask\CommentsApp.Application\obj\Debug\net9.0\CommentsApp.Application.dll
+D:\Code\DzenTestTask\CommentsApp.Application\obj\Debug\net9.0\refint\CommentsApp.Application.dll
+D:\Code\DzenTestTask\CommentsApp.Application\obj\Debug\net9.0\CommentsApp.Application.pdb
+D:\Code\DzenTestTask\CommentsApp.Application\obj\Debug\net9.0\ref\CommentsApp.Application.dll

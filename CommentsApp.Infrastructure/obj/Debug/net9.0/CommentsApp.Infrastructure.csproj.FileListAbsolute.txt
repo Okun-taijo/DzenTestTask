@@ -1,0 +1,17 @@
+D:\Code\DzenTestTask\CommentsApp.Infrastructure\bin\Debug\net9.0\CommentsApp.Infrastructure.deps.json
+D:\Code\DzenTestTask\CommentsApp.Infrastructure\bin\Debug\net9.0\CommentsApp.Infrastructure.runtimeconfig.json
+D:\Code\DzenTestTask\CommentsApp.Infrastructure\bin\Debug\net9.0\CommentsApp.Infrastructure.dll
+D:\Code\DzenTestTask\CommentsApp.Infrastructure\bin\Debug\net9.0\CommentsApp.Infrastructure.pdb
+D:\Code\DzenTestTask\CommentsApp.Infrastructure\bin\Debug\net9.0\CommentsApp.Application.dll
+D:\Code\DzenTestTask\CommentsApp.Infrastructure\bin\Debug\net9.0\CommentsApp.Application.pdb
+D:\Code\DzenTestTask\CommentsApp.Infrastructure\obj\Debug\net9.0\CommentsApp.Infrastructure.csproj.AssemblyReference.cache
+D:\Code\DzenTestTask\CommentsApp.Infrastructure\obj\Debug\net9.0\CommentsApp.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Code\DzenTestTask\CommentsApp.Infrastructure\obj\Debug\net9.0\CommentsApp.Infrastructure.AssemblyInfoInputs.cache
+D:\Code\DzenTestTask\CommentsApp.Infrastructure\obj\Debug\net9.0\CommentsApp.Infrastructure.AssemblyInfo.cs
+D:\Code\DzenTestTask\CommentsApp.Infrastructure\obj\Debug\net9.0\CommentsApp.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Code\DzenTestTask\CommentsApp.Infrastructure\obj\Debug\net9.0\Comments.F9494FBC.Up2Date
+D:\Code\DzenTestTask\CommentsApp.Infrastructure\obj\Debug\net9.0\CommentsApp.Infrastructure.dll
+D:\Code\DzenTestTask\CommentsApp.Infrastructure\obj\Debug\net9.0\refint\CommentsApp.Infrastructure.dll
+D:\Code\DzenTestTask\CommentsApp.Infrastructure\obj\Debug\net9.0\CommentsApp.Infrastructure.pdb
+D:\Code\DzenTestTask\CommentsApp.Infrastructure\obj\Debug\net9.0\CommentsApp.Infrastructure.genruntimeconfig.cache
+D:\Code\DzenTestTask\CommentsApp.Infrastructure\obj\Debug\net9.0\ref\CommentsApp.Infrastructure.dll
